@@ -8,32 +8,33 @@ module.exports = {
   update,
   remove
 };
-function insert(item) {
-  return db("hubs")
-    .insert(item, "id")
+
+function insert(message) {
+  return db("messages")
+    .insert(message, "id")
     .then(ids => {
       const [id] = ids;
       return findById(id);
     });
 }
 function find() {
-  return db("hubs");
+  return db("messages");
 }
 function findBy(filter) {
-  return db("hubs").where(filter);
+  return db("messages").where(filter);
 }
 function findById(id) {
-  return db("hubs")
+  return db("messages")
     .where({ id })
     .first();
 }
-function update(id, changes) {
-  return db("hubs")
+function update(id, changed) {
+  return db("messages")
     .where({ id })
-    .update(changes);
+    .update(changed);
 }
 function remove(id) {
-  return db("hubs")
+  return db("messages")
     .where({ id })
     .del();
 }

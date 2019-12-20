@@ -1,6 +1,6 @@
 entities:
 
-- Hubs <---- like a channel>
+- Hubs <---- like a Slack channel>
   - id
   - name
 - Users
